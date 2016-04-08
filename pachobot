@@ -67,7 +67,7 @@ for r in mlist:
 	for k in mlist[r]:
 		f = mbox.get_file(k)
 		devnull = open("/dev/null", "w+")
-		m = mbox[k]
+		m = mbox.get_message(k)
 		p = Popen(["git", "apply", "--stat", "-"], stdin = PIPE, stdout = devnull, stderr = devnull)
 		p.stdin.write(f.read())
 		p.stdin.close()
